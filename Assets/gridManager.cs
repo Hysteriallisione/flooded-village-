@@ -9,6 +9,7 @@ public class gridManager : MonoBehaviour
     [SerializeField] public int width, height;
     [SerializeField] public GameObject tile;
     [SerializeField] public Transform cameraP;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +33,10 @@ public class gridManager : MonoBehaviour
     }
 
 
-            // Update is called once per frame
-            void Update()
-            {
+      // Update is called once per frame
+     void Update()
+     {
 
-            }
-        }
+     }
+     }
    
