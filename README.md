@@ -1,7 +1,7 @@
 # flooded-village-
 grid based game
 
-V3 already of this project...
+V4 already of this project...
 
 sea, sand and fun  (planned for this module).
 
