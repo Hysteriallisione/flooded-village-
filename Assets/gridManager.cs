@@ -11,7 +11,12 @@ public class gridManager : MonoBehaviour
     public byte[,] Bgrid;
     public GameObject[] Arraypref;
 
-    
+    public enum CaseType
+    {
+        sand  = 2,
+        water = 1,
+        empty = 0
+    }
     
         
     // Start is called before the first frame update
@@ -19,16 +24,17 @@ public class gridManager : MonoBehaviour
     {
        
         Bgrid = new byte[8, 8]{
-            {2,2,2,2,2,2,2,2},
-            {2,2,2,2,2,2,2,2},
-            {2,2,2,2,2,2,2,2},
-            {2,2,1,0,2,2,2,2},
-            {2,1,1,0,2,2,2,2},
-            {2,2,2,2,2,2,2,2},
-            {2,2,2,2,2,2,2,2},
-            {2,2,2,2,2,2,2,2}
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,0,0,2,2,2},
+            {1,2,1,2,0,2,2,2},
+            {1,1,1,2,0,2,2,2},
+            {1,2,2,0,0,2,1,2},
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,2,2,2,2,2}
         };
         // sand=2 water =1 empty=0
+        //tourner la tête vers la droite pour visualiser le grid
 
         GenerateGrid();
 
@@ -47,20 +53,20 @@ public class gridManager : MonoBehaviour
         {
            for (int y = 0; y < height; y++)
             {
-                if (Bgrid[x,y] == 2 ){
+                if (Bgrid[x,y] == (byte)CaseType.sand ){
                     // si sand est à [0,0]  
-                 var spawnedTile = Instantiate(Arraypref[2], new Vector3(x,y), Quaternion.identity, this.transform);
+                 var spawnedTile = Instantiate(Arraypref[(byte)CaseType.sand], new Vector3(x,y), Quaternion.identity, this.transform);
                 }
-                if (Bgrid[x, y] == 1)
+                if (Bgrid[x, y] == (byte)CaseType.water)
                 {
-                    var spawnedTile = Instantiate(Arraypref[1], new Vector3(x, y), Quaternion.identity, this.transform);
-
                     // si water est à [0,0]
+                    var spawnedTile = Instantiate(Arraypref[(byte)CaseType.water], new Vector3(x, y), Quaternion.identity, this.transform);
+
                 }
-                if (Bgrid[x, y] == 0)
+                if (Bgrid[x, y] == (byte)CaseType.empty)
                         {
                     // si empty est à [0,0]
-                    var spawnedTile = Instantiate(Arraypref[0], new Vector3(x, y), Quaternion.identity, this.transform);
+                    var spawnedTile = Instantiate(Arraypref[(byte)CaseType.empty], new Vector3(x, y), Quaternion.identity, this.transform);
                 }
 
 

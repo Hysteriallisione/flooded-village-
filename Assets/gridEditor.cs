@@ -13,6 +13,7 @@ public class gridEditor : Editor
         DrawDefaultInspector();
 
       gridManager gridConnard = (gridManager) target;
+        
 
         if (GUILayout.Button("build my grid"))
         {
