@@ -13,12 +13,26 @@ public class gridManager : MonoBehaviour
 
     public enum CaseType
     {
-        sand  = 2,
+        sand = 2,
         water = 1,
         empty = 0
     }
-    
-        
+
+    public void GenerateGridToEdit()
+    {
+
+        byte[,] Bgrid2 = new byte[8, 8]{
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,0,0,2,2,2},
+            {1,2,1,2,0,2,2,2},
+            {1,1,1,2,0,2,2,2},
+            {1,2,2,0,0,2,1,2},
+            {1,2,2,2,2,2,2,2},
+            {1,2,2,2,2,2,2,2}
+         };
+        GenerateGrid();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +50,7 @@ public class gridManager : MonoBehaviour
         // sand=2 water =1 empty=0
         //tourner la tête vers la droite pour visualiser le grid
 
-        GenerateGrid();
+      GenerateGrid();
 
         cameraP.transform.position = new Vector3((float)width / 2, (float)height / 2, -10);
     }
@@ -85,5 +99,5 @@ public class gridManager : MonoBehaviour
      {
 
      }
-     }
+}
    

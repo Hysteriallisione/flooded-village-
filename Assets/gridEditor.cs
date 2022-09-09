@@ -15,9 +15,9 @@ public class gridEditor : Editor
       gridManager gridConnard = (gridManager) target;
         
 
-        if (GUILayout.Button("build my grid"))
+        if (GUILayout.Button("build my grid to edit"))
         {
-            gridConnard.GenerateGrid ();
+            gridConnard.GenerateGridToEdit ();
         }
         //add everthing the button would do.
     }
